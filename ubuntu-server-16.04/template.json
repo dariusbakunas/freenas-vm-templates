@@ -1,0 +1,49 @@
+{
+    "template": {
+        "name": "ubuntu-server-16.04", 
+        "author": "Darius Bakunas-Milanowski <bakunas@gmail.com>", 
+        "description": "Basic Ubuntu Server 16.04 installation (no updates, no additional packages, no openssh)", 
+        "created_at": {
+            "$date": "2017-03-18T13:50:22"
+        }, 
+        "updated_at": {
+            "$date": "2017-03-18T13:50:22"
+        }, 
+        "fetch": [
+            {
+                "name": "os", 
+                "url": "https://www.dropbox.com/s/nzrjw0ywkw88ua7/os.img.gz?dl=1", 
+                "sha256": "7e4fc7e2c0096d3736e71c542efd4fc1f61b229187e4eff93b64fb3281d8ed99",
+                "size": 869269504
+            }
+        ]
+    }, 
+    "config": {
+        "ncpus": 2, 
+        "bootloader": "GRUB", 
+        "memsize": 4096,
+        "minmemsize": 1024,
+        "boot_device": "os", 
+        "boot_partition": "msdos1"
+    }, 
+    "devices": [
+        {
+            "type": "DISK", 
+            "name": "os", 
+            "properties": {
+                "size": 17179869184, 
+                "mode": "AHCI", 
+                "source": "os"
+            }
+        }, 
+        {
+            "type": "NIC", 
+            "name": "nic", 
+            "properties": {
+                "mode": "BRIDGED", 
+                "bridge": "default"
+            }
+        }
+    ], 
+    "guest_type": "linux64"
+}
